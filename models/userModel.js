@@ -15,6 +15,13 @@ const findUser = (username) => {
     return users.find(user => user.username === username);
 }
 
+const verifyPassword = (username, password) => {
+    const user = findUser(username);
+    return (user && user.password === password);
+}
+
 module.exports = {
-    createUser
+    createUser,
+    findUser,
+    verifyPassword
 };
