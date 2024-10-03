@@ -1,8 +1,9 @@
 let users = []
 
-const createUser = (username, password) => {
+const createUser = (email, username, password) => {
     const newUser = {
-        id: users.length + 1, 
+        id: users.length + 1,
+        email, email,
         username: username,
         password: password
     };
@@ -11,12 +12,12 @@ const createUser = (username, password) => {
     // return newUser;
 };
 
-const findUser = (username) => {
-    return users.find(user => user.username === username);
+const findUser = (email) => {
+    return users.find(user => user.email === email);
 }
 
-const verifyPassword = (username, password) => {
-    const user = findUser(username);
+const verifyPassword = (email, password) => {
+    const user = findUser(email);
     return (user && user.password === password);
 }
 
