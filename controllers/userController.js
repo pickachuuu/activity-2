@@ -27,8 +27,7 @@ const login = (req, res) => {
     return res.status(401).json({ message: 'Invalid username or password' });
     }
 
-    const token = jwt.sign({ id: user.id, email: user.email }, secretKey);
-
+    const token = jwt.sign({ id: user.id, email: user.email }, secretKey, { expiresIn: '1h'});
     return res.status(200).json({ message: 'Login successful', token });
 };
 
