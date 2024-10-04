@@ -32,8 +32,7 @@ const login = (req, res) => {
 };
 
 const getProfile = (req, res) => {
-    const {email} = req.body;
-    const user = userModel.findUser(email);
+    const user = userModel.findUser(req.user.email);
 
     if (!user){
         res.status(404).json({message: 'User not found'});
