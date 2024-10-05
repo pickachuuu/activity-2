@@ -4,7 +4,7 @@ const secretKey = 'test123'; // for testing purposes //
 
 const register = (req, res) => {
     const {email, username, password} = req.body;
-    const existingUser = userModel.findUser(username);
+    const existingUser = userModel.findUser(email);
 
     if (existingUser){
         return res.status(400).json({message: 'Existing user with the same username exist'})
